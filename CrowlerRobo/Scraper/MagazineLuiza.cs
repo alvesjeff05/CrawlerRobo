@@ -26,9 +26,8 @@ public class MagazineLuizaScraper
                     // Obtém o preço do primeiro produto
                     string secondProductPrice = priceElement.Text;
 
-
                     // Registra o log com o ID do produto
-                    RegistrarLog("280597", "jeffalves", DateTime.Now, "WebScraping - Magazine Luiza", "Sucesso", idProduto);
+                    RegistrarLog("2805", "jeffalves", DateTime.Now, "WebScraping - Magazine Luiza", "Sucesso", idProduto);
 
                     // Retorna o preço
                     return secondProductPrice;
@@ -38,7 +37,7 @@ public class MagazineLuizaScraper
                     Console.WriteLine("Preço não encontrado.");
 
                     // Registra o log com o ID do produto
-                    RegistrarLog("280597", "jeffalves", DateTime.Now, "WebScraping - Magazine Luiza", "Preço não encontrado", idProduto);
+                    RegistrarLog("2805", "jeffalves", DateTime.Now, "WebScraping - Magazine Luiza", "Preço não encontrado", idProduto);
 
                     return null;
                 }
@@ -49,25 +48,25 @@ public class MagazineLuizaScraper
             Console.WriteLine($"Erro ao acessar a página: {ex.Message}");
 
             // Registra o log com o ID do produto
-            RegistrarLog("280597", "jeffalves", DateTime.Now, "Web Scraping - Magazine Luiza", $"Erro: {ex.Message}", idProduto);
+            RegistrarLog("2805", "jeffalves", DateTime.Now, "Web Scraping - Magazine Luiza", $"Erro: {ex.Message}", idProduto);
 
             return null;
         }
     }
 
-    private static void RegistrarLog(string codRob, string usuRob, DateTime dateLog, string processo, string infLog, int idProd)
+    private static void RegistrarLog(string CodigoRobo, string UsuarioRobo, DateTime DateLog, string Processo, string InfLog, int IdProd)
     {
 
         using (var context = new RoboContext())
         {
             var log = new Log
             {
-                CodRob = codRob,
-                UsuRob = usuRob,
-                DateLog = dateLog,
-                Processo = processo,
-                InfLog = infLog,
-                IdProd = idProd
+                CodigoRobo = CodigoRobo,
+                UsuarioRobo = UsuarioRobo,
+                DateLog = DateLog,
+                Etapa = Processo,
+                InformacaoLog = InfLog,
+                IdProdutoAPI = IdProd
             };
             context.Logs.Add(log);
             context.SaveChanges();

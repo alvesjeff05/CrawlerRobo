@@ -22,7 +22,7 @@ class Compare
         }
         else if (firstPrice > secondPrice)
         {
-            return ("O produto no Mercado Livre está mais em conta - " + linkLuiza);
+            return ("O produto no Magazine Luiza está mais em conta - " + linkLuiza);
         }
         else
         {

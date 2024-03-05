@@ -68,7 +68,7 @@ namespace CrowlerRobo
                                 // Registra um log no banco de dados apenas se o produto for novo
                                 if (!ProdutoJaRegistrado(produto.Id))
                                 {
-                                    RegistrarLog("280597", "jeffalves", DateTime.Now, "ConsultaAPI - Verificar Produto", "Sucesso", produto.Id);
+                                    RegistrarLog("2805", "jeffalves", DateTime.Now, "ConsultaAPI - Verificar Produto", "Sucesso", produto.Id);
 
                                     MercadoLivreScraper mercadoLivreScraper = new MercadoLivreScraper();
                                     var mercado = mercadoLivreScraper.ObterPreco(produto.Nome, produto.Id);
@@ -79,16 +79,16 @@ namespace CrowlerRobo
                                     Compare compare = new Compare();
                                     string compareResult = compare.VerificarValor(mercado, magazine, produto.Nome);
 
-                                    RegistrarLog("280597", "jeffalves", DateTime.Now, "BenchMarking", "Sucesso", produto.Id);
+                                    RegistrarLog("2805", "jeffalves", DateTime.Now, "BenchMarking", "Sucesso", produto.Id);
 
                                     VerificarEmail.EnviarEmail(produto.Nome, mercado, produto.Nome, magazine, compareResult, produto.Nome);
 
-                                    RegistrarLog("280597", "jeffalves", DateTime.Now, "Envio de email", "Sucesso", produto.Id);
+                                    RegistrarLog("2805", "jeffalves", DateTime.Now, "Envio de email", "Sucesso", produto.Id);
 
                                 }
                             }
                         }
-                    }
+                    }   
                     else
                     {
                         //Imprimir mensagem de erro caso a requisição falhe
@@ -115,7 +115,7 @@ namespace CrowlerRobo
         {
             using (var context = new RoboContext())
             {
-                return context.Logs.Any(log => log.IdProd == idProduto);
+                return context.Logs.Any(log => log.IdProdutoAPI == idProduto);
             }
         }
 
@@ -126,12 +126,12 @@ namespace CrowlerRobo
             {
                 var log = new Log
                 {
-                    CodRob = CodRob,
-                    UsuRob = UsuRob,
+                    CodigoRobo = CodRob,
+                    UsuarioRobo = UsuRob,
                     DateLog = DateLog,
-                    Processo = Processo,
-                    InfLog = InfLog,
-                    IdProd = IdProd
+                    Etapa = Processo,
+                    InformacaoLog = InfLog,
+                    IdProdutoAPI = IdProd
                 };
                 context.Logs.Add(log);
                 context.SaveChanges();

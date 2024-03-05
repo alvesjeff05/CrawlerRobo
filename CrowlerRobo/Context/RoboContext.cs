@@ -14,6 +14,6 @@ public class RoboContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        optionsBuilder.UseSqlServer("Server=PC03LAB2526\\SENAI;Database=RoboAPI;User Id=sa; Password=senai.123;");
+        optionsBuilder.UseSqlServer(@"DataSource=SQL9001.site4now.net; Initial Catalog=db_aa5b20_apialmoxarifado; User id=db_aa5b20_apialmoxarifado_admin; Password=master@123;");
     }
 }

@@ -28,7 +28,7 @@ public class VerificarEmail
                 client.EnableSsl = true; // Habilitar SSL/TLS
 
                 // Construir mensagem de e-mail
-                MailMessage mensagem = new MailMessage(remetente, "willijefferson.crawler@hotmail.com")
+                MailMessage mensagem = new MailMessage(remetente, "reginaldo.santana@docente.senai.br")
                 {
                     Subject = "Resultado da comparação de preços",
                     Body = $"Mercado Livre\n" +
