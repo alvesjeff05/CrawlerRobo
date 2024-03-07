@@ -115,7 +115,7 @@ namespace CrowlerRobo
         {
             using (var context = new RoboContext())
             {
-                return context.Logs.Any(log => log.IdProdutoAPI == idProduto);
+                return context.LOGROBO.Any(log => log.IdProdutoAPI == idProduto);
             }
         }
 
@@ -133,7 +133,7 @@ namespace CrowlerRobo
                     InformacaoLog = InfLog,
                     IdProdutoAPI = IdProd
                 };
-                context.Logs.Add(log);
+                context.LOGROBO.Add(log);
                 context.SaveChanges();
             }
         }

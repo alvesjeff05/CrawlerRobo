@@ -68,7 +68,7 @@ public class MagazineLuizaScraper
                 InformacaoLog = InfLog,
                 IdProdutoAPI = IdProd
             };
-            context.Logs.Add(log);
+            context.LOGROBO.Add(log);
             context.SaveChanges();
         }
 

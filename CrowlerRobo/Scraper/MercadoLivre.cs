@@ -67,7 +67,7 @@ public class MercadoLivreScraper
                 InformacaoLog = infLog,
                 IdProdutoAPI = idProd
             };
-            context.Logs.Add(log);
+            context.LOGROBO.Add(log);
             context.SaveChanges();
         }
     }
