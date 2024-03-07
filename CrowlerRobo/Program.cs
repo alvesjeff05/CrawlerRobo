@@ -21,14 +21,16 @@ namespace CrowlerRobo
         static void Main(string[] args)
         {
             //Definir o intervalo de tempo para 5 minutos (300.000 milissegundos)
-            int intervalo = 6000;
+            int intervalo = 300000;
 
             //Criar um temporizador que dispara a cada 5 minutos
             Timer timer = new Timer(VerificarNovoProduto, null, 0, intervalo);
 
             //Manter a aplicaçãp rodando
-            Console.WriteLine("Pressione qualquer tecla para sair...");
-            Console.ReadKey();
+            while (true)
+            {
+                Thread.Sleep(Timeout.Infinite);
+            }
         }
         static async void VerificarNovoProduto(object state)
         {
@@ -115,7 +117,7 @@ namespace CrowlerRobo
         {
             using (var context = new RoboContext())
             {
-                return context.LOGROBO.Any(log => log.IdProdutoAPI == idProduto);
+                return context.LOGROBO.Any(log => log.IdProdutoAPI == idProduto && log.CodigoRobo == "2805");
             }
         }
 
